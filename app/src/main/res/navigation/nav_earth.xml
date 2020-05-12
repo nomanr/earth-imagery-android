@@ -7,7 +7,6 @@
     <fragment
         android:id="@+id/image_list_fragment"
         android:name="com.imagery.earth.ImageListFragment"
-        android:label="{asdfsdfdf}"
         tools:layout="@layout/fragment_image_list">
         <action
             android:id="@+id/action_next"

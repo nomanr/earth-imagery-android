@@ -23,12 +23,10 @@ class ImageListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentImageListBinding.inflate(inflater, container, false)
-        binding.lifecycleOwner = this
         binding.viewmodel = viewModel
         val adapter = ImageAdapter()
         binding.rvImages.adapter = adapter
         observeImages(adapter)
-
         return binding.root
     }
 
