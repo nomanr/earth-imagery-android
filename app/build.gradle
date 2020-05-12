@@ -25,7 +25,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField 'String', 'BASE_RUL', base_url
+        buildConfigField 'String', 'BASE_URL', base_url
         buildConfigField 'String', 'API_KEY', configProperties['api_key']
     }
 
@@ -48,7 +48,6 @@ android {
 }
 
 dependencies {
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin_version}"
     implementation "androidx.appcompat:appcompat:${versions.androidx.appcompat}"
     implementation "androidx.core:core-ktx:${versions.androidx.core_ktx}"
@@ -68,5 +67,5 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:${versions.squareup.retrofit}"
     implementation "com.squareup.okhttp3:logging-interceptor:${versions.squareup.okhttp3}"
 
-
+    implementation "com.github.chrisbanes:PhotoView:${versions.photoview}"
 }

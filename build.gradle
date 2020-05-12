@@ -16,7 +16,8 @@ buildscript {
             ],
             'coroutines'    : "1.3.0-M2",
             'gson'          : '2.8.2',
-            'coil'          : '0.10.1'
+            'coil'          : '0.10.1',
+            'photoview'     : '2.3.0'
     ]
 
     repositories {
@@ -35,6 +36,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
 
     }
 }

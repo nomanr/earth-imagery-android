@@ -8,7 +8,19 @@
         android:id="@+id/image_list_fragment"
         android:name="com.imagery.earth.ImageListFragment"
         tools:layout="@layout/fragment_image_list">
+        <action
+            android:id="@+id/action_next"
+            app:destination="@id/image_detail_fragment" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/image_detail_fragment"
+        android:name="com.imagery.earth.ImageDetailFragment"
+        tools:layout="@layout/fragment_image_detail">
+
+        <argument
+            android:name="image"
+            app:argType="com.imagery.earth.data.Image" />
     </fragment>
 
 

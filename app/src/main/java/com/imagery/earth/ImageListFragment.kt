@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.imagery.earth.adapters.ImageAdapter
 import com.imagery.earth.databinding.FragmentImageListBinding
 import com.imagery.earth.utilities.InjectorUtils
 import com.imagery.earth.viewmodels.ImageListViewModel

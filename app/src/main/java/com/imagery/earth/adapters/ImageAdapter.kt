@@ -1,10 +1,13 @@
-package com.imagery.earth
+package com.imagery.earth.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.imagery.earth.ImageListFragmentDirections
 import com.imagery.earth.data.Image
 import com.imagery.earth.databinding.ListItemImageBinding
 
@@ -26,6 +29,16 @@ class ImageAdapter : ListAdapter<Image, RecyclerView.ViewHolder>(ImageDiffCallba
 
     class ImageViewHolder(private val binding: ListItemImageBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+                binding.image?.let { image -> navigateToDetails(it, image) }
+            }
+        }
+
+        private fun navigateToDetails(view: View, image: Image) {
+            view.findNavController().navigate(ImageListFragmentDirections.actionNext(image))
+        }
 
         fun bind(item: Image) {
             binding.apply {

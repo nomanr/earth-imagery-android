@@ -9,10 +9,18 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RestClient {
     fun retrofit(): Retrofit {
         return Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(provideGsonConverterFactory())
             .client(provideOkHttpClient())
-            .baseUrl(BuildConfig.BASE_RUL)
+            .baseUrl(provideBaseUrl())
             .build()
+    }
+
+    private fun provideGsonConverterFactory(): GsonConverterFactory {
+        return GsonConverterFactory.create()
+    }
+
+    private fun provideBaseUrl(): String {
+        return BuildConfig.BASE_URL
     }
 
     private fun provideOkHttpClient(): OkHttpClient {
