@@ -53,10 +53,10 @@ dependencies {
     implementation "androidx.core:core-ktx:${versions.androidx.core_ktx}"
     implementation "androidx.constraintlayout:constraintlayout:${versions.androidx.constraintlayout}"
 
-    implementation "com.google.android.material:material:${versions.google.material}"
-
     implementation "androidx.navigation:navigation-fragment-ktx:${versions.androidx.navigation}"
     implementation "androidx.navigation:navigation-ui-ktx:${versions.androidx.navigation}"
+
+    implementation "com.google.android.material:material:${versions.google.material}"
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"

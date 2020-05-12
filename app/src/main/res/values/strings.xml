@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Earth</string>
+    <string name="title_home">Images by EPIC</string>
+    <string name="subtitle_home">Earth Polychromatic Imaging Camera</string>
 </resources>
