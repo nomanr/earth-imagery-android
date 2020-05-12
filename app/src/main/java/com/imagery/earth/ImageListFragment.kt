@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.imagery.earth.data.Image
+import androidx.lifecycle.Observer
 import com.imagery.earth.databinding.FragmentImageListBinding
+import com.imagery.earth.utilities.InjectorUtils
 import com.imagery.earth.viewmodels.ImageListViewModel
 
 class ImageListFragment : Fragment() {
-    private val viewModel: ImageListViewModel by viewModels()
-    private val adapter : ImageAdapter = ImageAdapter()
+    private val viewModel: ImageListViewModel by viewModels {
+        InjectorUtils.provideImageRepository(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,25 +22,22 @@ class ImageListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentImageListBinding.inflate(inflater, container, false)
-
+        val adapter = ImageAdapter()
         binding.rvImages.adapter = adapter
-
+        observeImages(adapter)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadImages(adapter)
+        viewModel.getImages()
+    }
+
+    private fun observeImages(adapter: ImageAdapter) {
+        viewModel.imageList.observe(viewLifecycleOwner, Observer { images ->
+            adapter.submitList(images)
+        })
     }
 
 
-    private fun loadImages(adapter: ImageAdapter) {
-        context?.applicationContext?.assets?.open("data.json").use { inputStream ->
-            JsonReader(inputStream?.reader()).use { jsonReader ->
-                val imageType = object : TypeToken<List<Image>>() {}.type
-                val images: List<Image> = Gson().fromJson(jsonReader, imageType)
-                adapter.submitList(images)
-            }
-        }
-    }
 }

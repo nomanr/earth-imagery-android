@@ -66,5 +66,7 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:${versions.squareup.okhttp3}"
     implementation "com.squareup.retrofit2:converter-gson:${versions.squareup.retrofit}"
     implementation "com.squareup.retrofit2:retrofit:${versions.squareup.retrofit}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${versions.squareup.okhttp3}"
+
 
 }
