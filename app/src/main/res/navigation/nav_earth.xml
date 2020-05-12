@@ -7,10 +7,15 @@
     <fragment
         android:id="@+id/image_list_fragment"
         android:name="com.imagery.earth.ImageListFragment"
+        android:label="{asdfsdfdf}"
         tools:layout="@layout/fragment_image_list">
         <action
             android:id="@+id/action_next"
-            app:destination="@id/image_detail_fragment" />
+            app:destination="@id/image_detail_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment

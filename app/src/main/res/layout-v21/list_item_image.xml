@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -16,10 +15,10 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:transitionName="img_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            app:imageFromUrl="@{image.imageUrl()}"
-            tools:targetApi="lollipop" />
+            app:imageFromUrl="@{image.imageUrl()}" />
     </FrameLayout>
 </layout>
