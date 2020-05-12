@@ -1,7 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
+
+def configPropertiesFile = rootProject.file("config.properties")
+def configProperties = new Properties()
+configProperties.load(new FileInputStream(configPropertiesFile))
 
 android {
     compileSdkVersion 29
@@ -19,6 +24,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'BASE_RUL', base_url
+        buildConfigField 'String', 'API_KEY', configProperties['api_key']
     }
 
     buildTypes {
@@ -40,7 +48,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin_version}"
     implementation "androidx.appcompat:appcompat:${versions.androidx.appcompat}"
     implementation "androidx.core:core-ktx:${versions.androidx.core_ktx}"
@@ -48,4 +56,15 @@ dependencies {
 
     implementation "androidx.navigation:navigation-fragment-ktx:${versions.androidx.navigation}"
     implementation "androidx.navigation:navigation-ui-ktx:${versions.androidx.navigation}"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
+
+    implementation "io.coil-kt:coil:${versions.coil}"
+
+    implementation "com.google.code.gson:gson:${versions.gson}"
+    implementation "com.squareup.okhttp3:okhttp:${versions.squareup.okhttp3}"
+    implementation "com.squareup.retrofit2:converter-gson:${versions.squareup.retrofit}"
+    implementation "com.squareup.retrofit2:retrofit:${versions.squareup.retrofit}"
+
 }
