@@ -23,17 +23,16 @@ class ImageListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentImageListBinding.inflate(inflater, container, false)
-        binding.viewmodel = viewModel
         val adapter = ImageAdapter()
-        binding.rvImages.adapter = adapter
+        with(binding) {
+            viewmodel = viewModel
+            rvImages.adapter = adapter
+            lifecycleOwner = this@ImageListFragment
+        }
         observeImages(adapter)
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.getImages()
-    }
 
     private fun observeImages(adapter: ImageAdapter) {
         viewModel.imageList.observe(viewLifecycleOwner, Observer { images ->

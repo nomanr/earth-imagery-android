@@ -10,11 +10,15 @@ class ImageListViewModel(
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    val imageList = MutableLiveData<List<Image>>()
+    init {
+        getImages()
+    }
+
+    val imageList: MutableLiveData<List<Image>> = MutableLiveData<List<Image>>()
     private val _loader = MutableLiveData<Boolean>(true)
     val loader: LiveData<Boolean> = _loader
 
-    fun getImages() = viewModelScope.launch {
+    private fun getImages() = viewModelScope.launch {
         val response = imageRepository.getImages()
         imageList.value = response
         _loader.value = false
