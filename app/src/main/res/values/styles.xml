@@ -1,10 +1,31 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+
+    <style name="TabLayout.Theme.Earth" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="tabIndicatorColor">@color/colorAccent</item>
+        <item name="tabTextColor">@color/colorAccent</item>
+        <item name="tabRippleColor">@color/colorAccent</item>
+        <item name="tabIndicatorHeight">1dp</item>
+    </style>
+
+    <style name="Tab.Theme.Earth.TextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/canvas_regular</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="Fab.Theme.Earth" parent="Widget.Design.FloatingActionButton">
+        <item name="android:tint">@color/colorPrimary</item>
+        <item name="fabSize">mini</item>
+        <item name="rippleColor">@color/colorPrimary</item>
+        <item name="backgroundTint">@color/colorAccent</item>
     </style>
 
 </resources>

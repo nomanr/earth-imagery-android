@@ -12,7 +12,7 @@ import com.imagery.earth.databinding.FragmentImageListBinding
 import com.imagery.earth.utilities.InjectorUtils
 import com.imagery.earth.viewmodels.ImageListViewModel
 
-class ImageListFragment : Fragment() {
+class NewestImageListFragment : Fragment() {
     private val viewModel: ImageListViewModel by viewModels {
         InjectorUtils.provideImageRepository(this)
     }
@@ -27,7 +27,7 @@ class ImageListFragment : Fragment() {
         with(binding) {
             viewmodel = viewModel
             rvImages.adapter = adapter
-            lifecycleOwner = this@ImageListFragment
+            lifecycleOwner = this@NewestImageListFragment
         }
         observeImages(adapter)
         return binding.root
@@ -39,6 +39,5 @@ class ImageListFragment : Fragment() {
             adapter.submitList(images)
         })
     }
-
 
 }
