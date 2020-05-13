@@ -7,13 +7,12 @@
 
         <variable
             name="viewmodel"
-            type="com.imagery.earth.viewmodels.ImageListViewModel" />
+            type="com.imagery.earth.viewmodels.NewestImageListViewModel" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="wrap_content">
 
         <ProgressBar
             android:layout_width="20dp"

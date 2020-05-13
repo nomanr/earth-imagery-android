@@ -9,6 +9,7 @@ buildscript {
                     'constraintlayout': '1.1.3',
                     'navigation'      : '2.2.2',
                     'lifecycle_ext'   : '2.2.0',
+                    'room'   : '2.2.0',
             ],
             'squareup'      : [
                     'gson_converter': '2.6.2',

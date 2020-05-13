@@ -5,4 +5,5 @@
     <string name="latest_images">Newest</string>
     <string name="saved_images">Saved</string>
     <string name="button_share">Share</string>
+    <string name="no_saved_images">"So empty! save something first. "</string>
 </resources>

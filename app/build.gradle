@@ -48,6 +48,8 @@ android {
 }
 
 dependencies {
+    kapt "androidx.room:room-compiler:${versions.androidx.room}"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin_version}"
     implementation "androidx.appcompat:appcompat:${versions.androidx.appcompat}"
     implementation "androidx.core:core-ktx:${versions.androidx.core_ktx}"
@@ -55,6 +57,9 @@ dependencies {
 
     implementation "androidx.navigation:navigation-fragment-ktx:${versions.androidx.navigation}"
     implementation "androidx.navigation:navigation-ui-ktx:${versions.androidx.navigation}"
+
+    implementation "androidx.room:room-runtime:${versions.androidx.room}"
+    implementation "androidx.room:room-ktx:${versions.androidx.room}"
 
     implementation "com.google.android.material:material:${versions.google.material}"
 

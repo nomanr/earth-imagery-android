@@ -8,13 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.imagery.earth.adapters.ImageAdapter
-import com.imagery.earth.databinding.FragmentImageListBinding
+import com.imagery.earth.databinding.FragmentNewestImageListBinding
 import com.imagery.earth.utilities.InjectorUtils
-import com.imagery.earth.viewmodels.ImageListViewModel
+import com.imagery.earth.viewmodels.NewestImageListViewModel
 
 class NewestImageListFragment : Fragment() {
-    private val viewModel: ImageListViewModel by viewModels {
-        InjectorUtils.provideImageRepository(this)
+    private val viewModel: NewestImageListViewModel by viewModels {
+        InjectorUtils.provideImageListViewModelFactory(this)
     }
 
     override fun onCreateView(
@@ -22,7 +22,7 @@ class NewestImageListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentImageListBinding.inflate(inflater, container, false)
+        val binding = FragmentNewestImageListBinding.inflate(inflater, container, false)
         val adapter = ImageAdapter()
         with(binding) {
             viewmodel = viewModel

@@ -6,14 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import com.google.android.material.snackbar.Snackbar
 import com.imagery.earth.databinding.FragmentImageDetailBinding
+import com.imagery.earth.utilities.InjectorUtils
 import com.imagery.earth.viewmodels.ImageDetailViewModel
-import com.imagery.earth.viewmodels.ImageDetailViewModelFactory
 
 class ImageDetailFragment : Fragment() {
     private val viewModel: ImageDetailViewModel by viewModels {
-        ImageDetailViewModelFactory(
-            ImageDetailFragmentArgs.fromBundle(requireArguments()).image, this
+        InjectorUtils.provideImageDetailViewModelFactory(
+            this,
+            ImageDetailFragmentArgs.fromBundle(requireArguments()).image
         )
     }
 
@@ -24,6 +27,11 @@ class ImageDetailFragment : Fragment() {
     ): View? {
         val binding = FragmentImageDetailBinding.inflate(inflater, container, false)
         binding.viewmodel = viewModel
+
+        viewModel.snackbar.observe(viewLifecycleOwner, Observer {
+            Snackbar.make(binding.root, it, Snackbar.LENGTH_SHORT).show()
+        })
+
         return binding.root
     }
 }
